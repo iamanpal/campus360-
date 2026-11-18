@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Profile | Campus 360</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/portal.css">
+</head>
+<body class="portal-body">
+
+  <aside class="portal-sidebar" id="portalSidebar"></aside>
+
+  <div class="portal-main">
+    <header class="portal-topbar" id="portalTopbar"></header>
+
+    <main class="portal-content">
+      <div class="portal-page-header">
+        <h1 class="portal-page-title">Student Profile & Identity</h1>
+        <p class="portal-page-subtitle">View enrolled program details and update personal contact information</p>
+      </div>
+
+      <div class="grid grid-3" style="grid-template-columns: 1fr 1fr; gap: 2rem;">
+        <!-- READ-ONLY ACADEMIC DETAILS -->
+        <div class="card">
+          <h3 style="color: var(--dark-maroon); font-size: 1.25rem; margin-bottom: 1rem; border-bottom: 2px solid var(--blush); padding-bottom: 0.5rem;">
+            🎓 Enrolled Academic Details
+          </h3>
+
+          <div style="display: flex; flex-direction: column; gap: 1rem;">
+            <div>
+              <span style="color: var(--muted); font-size: 0.85rem; display: block;">Student Roll / ID Number</span>
+              <strong style="color: var(--maroon); font-size: 1.1rem;" id="profileStudentId">--</strong>
+            </div>
+
+            <div>
+              <span style="color: var(--muted); font-size: 0.85rem; display: block;">Full Student Name</span>
+              <strong style="color: var(--charcoal);" id="profileName">--</strong>
+            </div>
+
+            <div>
+              <span style="color: var(--muted); font-size: 0.85rem; display: block;">Registered Email Address</span>
+              <span style="color: var(--charcoal);" id="profileEmail">--</span>
+            </div>
+
+            <div>
+              <span style="color: var(--muted); font-size: 0.85rem; display: block;">Degree Program</span>
+              <span style="color: var(--charcoal);" id="profileCourse">--</span>
+            </div>
+
+            <div>
+              <span style="color: var(--muted); font-size: 0.85rem; display: block;">Current Semester</span>
+              <span class="badge badge-info" id="profileSemester">Semester --</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- EDITABLE CONTACT DETAILS FORM -->
+        <div class="card">
+          <h3 style="color: var(--dark-maroon); font-size: 1.25rem; margin-bottom: 0.5rem; border-bottom: 2px solid var(--blush); padding-bottom: 0.5rem;">
+            📞 Contact Information
+          </h3>
+          <p style="color: var(--muted); font-size: 0.85rem; margin-bottom: 1.25rem;">Update your personal phone number or guardian contact details.</p>
+
+          <div id="profileAlert" class="alert"></div>
+
+          <form id="profileForm">
+            <div class="form-group">
+              <label for="profilePhone">Phone Number</label>
+              <input type="tel" id="profilePhone" class="form-control" placeholder="+1 (555) 000-0000">
+            </div>
+
+            <div class="form-group">
+              <label for="profileGuardian">Guardian Name / Emergency Contact</label>
+              <input type="text" id="profileGuardian" class="form-control" placeholder="Guardian Name">
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">
+              💾 Save Profile Contact Info
+            </button>
+          </form>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer-bottom" style="margin-top: auto;">
+      <div class="container">
+        <p>&copy; 2026 Campus 360. All rights reserved. Student Profile Module.</p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="../../js/auth.js"></script>
+  <script src="../../js/student/profile.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      protectPortal('student', 'profile');
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Settings | Campus 360</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/portal.css">
+</head>
+<body class="portal-body">
+
+  <aside class="portal-sidebar" id="portalSidebar"></aside>
+
+  <div class="portal-main">
+    <header class="portal-topbar" id="portalTopbar"></header>
+
+    <main class="portal-content">
+      <div class="portal-page-header">
+        <h1 class="portal-page-title">Admin Account Settings ⚙️</h1>
+        <p class="portal-page-subtitle">Update administrator profile credentials and security options</p>
+      </div>
+
+      <!-- ADMIN SETTINGS FORM CARD -->
+      <div class="card" style="max-width: 600px; margin: 0 auto 2rem auto;">
+        <h3 style="color: var(--dark-maroon); font-size: 1.2rem; margin-bottom: 1rem; border-bottom: 2px solid var(--blush); padding-bottom: 0.5rem;">
+          👤 Administrator Profile
+        </h3>
+
+        <div id="settingsAlert" class="alert" style="display: none; margin-bottom: 1rem;"></div>
+
+        <form id="adminSettingsForm">
+          <div class="form-group" style="margin-bottom: 1rem;">
+            <label for="adminNameInput" class="form-label">Administrator Name *</label>
+            <input type="text" id="adminNameInput" class="form-control" required>
+          </div>
+
+          <div class="form-group" style="margin-bottom: 1rem;">
+            <label for="adminEmailInput" class="form-label">Email Address (Read-only)</label>
+            <input type="email" id="adminEmailInput" class="form-control" readonly style="background: var(--warm-white); cursor: not-allowed;">
+          </div>
+
+          <div class="form-group" style="margin-bottom: 1.5rem;">
+            <label for="adminPasswordInput" class="form-label">New Password (Leave blank to keep unchanged)</label>
+            <input type="password" id="adminPasswordInput" class="form-control" placeholder="Enter new password if updating">
+          </div>
+
+          <div style="text-align: right;">
+            <button type="submit" class="btn btn-primary">💾 Save Profile Settings</button>
+          </div>
+        </form>
+      </div>
+    </main>
+
+    <footer class="footer-bottom" style="margin-top: auto;">
+      <div class="container">
+        <p>&copy; 2026 Campus 360. All rights reserved. Admin Control Panel Module.</p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="../../js/auth.js"></script>
+  <script src="../../js/admin/settings.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      protectPortal('admin', 'settings');
+    });
+  </script>
+</body>
+</html>

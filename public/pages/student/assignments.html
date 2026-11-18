@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assignments & Submissions | Campus 360</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/portal.css">
+</head>
+<body class="portal-body">
+
+  <aside class="portal-sidebar" id="portalSidebar"></aside>
+
+  <div class="portal-main">
+    <header class="portal-topbar" id="portalTopbar"></header>
+
+    <main class="portal-content">
+      <div class="portal-page-header">
+        <h1 class="portal-page-title">Course Assignments & Online Submission</h1>
+        <p class="portal-page-subtitle">Track deadlines, submit solution links/documents, and view evaluated marks</p>
+      </div>
+
+      <div id="assignmentsContainer">
+        <p style="color: var(--muted); text-align: center; padding: 2rem;">Loading course assignments...</p>
+      </div>
+    </main>
+
+    <!-- SUBMISSION MODAL DIALOG (Anti-Congestion Refactor) -->
+    <div id="submitModal" class="modal-overlay">
+      <div class="modal-dialog-box">
+        <div class="modal-dialog-header">
+          <h3>Submit Assignment Response</h3>
+          <button type="button" onclick="closeSubmitModal()" class="modal-close-btn" aria-label="Close">&times;</button>
+        </div>
+
+        <div style="background-color: var(--blush); border: 1px solid var(--soft-rose); border-radius: var(--radius-sm); padding: 0.85rem 1.25rem; margin-bottom: 1.5rem;">
+          <span style="font-size: 0.82rem; color: var(--muted); text-transform: uppercase; font-weight: 700; display: block; margin-bottom: 0.2rem;">Selected Assignment</span>
+          <span style="font-weight: 700; color: var(--maroon); font-size: 1.1rem;" id="modalAssignmentTitle">Assignment Title</span>
+        </div>
+
+        <div id="modalAlert" class="alert"></div>
+
+        <form id="submissionForm">
+          <div class="modal-form-group">
+            <label for="submissionFileInput">📎 Attach Assignment Solution (Photo or PDF Document)</label>
+            <div style="background: var(--warm-white); border: 2px dashed var(--soft-rose); border-radius: var(--radius-md); padding: 1.25rem; text-align: center;">
+              <input type="file" id="submissionFileInput" accept="image/*,application/pdf,.pdf" class="form-control" style="padding: 0.5rem; background: var(--white); cursor: pointer;">
+              <small style="color: var(--muted); font-size: 0.82rem; display: block; margin-top: 0.5rem;">
+                📷 Upload handwritten photo (JPG/PNG) or 📄 PDF document of your assignment.
+              </small>
+
+              <!-- File Preview Container -->
+              <div id="filePreviewContainer" style="display: none; margin-top: 1rem; padding: 0.75rem; background: var(--white); border-radius: var(--radius-sm); border: 1px solid var(--soft-rose); text-align: center;">
+                <img id="filePreviewImg" src="" alt="Solution Photo Preview" style="max-width: 100%; max-height: 220px; object-fit: contain; border-radius: var(--radius-sm); display: none; margin: 0 auto 0.5rem auto;">
+                <div id="filePreviewPdf" style="display: none; padding: 0.75rem; font-weight: 600; color: var(--dark-maroon); font-size: 0.95rem;">
+                  <span style="font-size: 1.5rem; display: block; margin-bottom: 0.25rem;">📄</span>
+                  <span id="filePreviewPdfName">document.pdf</span>
+                </div>
+                <div>
+                  <button type="button" id="removeFileBtn" class="btn btn-secondary" style="font-size: 0.8rem; padding: 0.35rem 0.85rem; color: #842029; border-color: #f5c2c7;">
+                    ❌ Remove Attached File
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-form-group">
+            <label for="submissionContent">Text Solution / Notes / Drive Link (Optional if file attached)</label>
+            <textarea id="submissionContent" class="modal-textarea" placeholder="Write any notes, typed answers, or paste repository/drive link here..."></textarea>
+          </div>
+
+          <div class="modal-action-row">
+            <button type="button" onclick="closeSubmitModal()" class="btn btn-secondary">Cancel</button>
+            <button type="submit" class="btn btn-primary">🚀 Submit Assignment Response</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <footer class="footer-bottom" style="margin-top: auto;">
+      <div class="container">
+        <p>&copy; 2026 Campus 360. All rights reserved. Assignments Module.</p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="../../js/auth.js"></script>
+  <script src="../../js/student/assignments.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      protectPortal('student', 'assignments');
+    });
+  </script>
+</body>
+</html>

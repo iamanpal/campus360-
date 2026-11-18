@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exam Marks Entry | Campus 360 Faculty</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/portal.css">
+</head>
+<body class="portal-body">
+
+  <aside class="portal-sidebar" id="portalSidebar"></aside>
+
+  <div class="portal-main">
+    <header class="portal-topbar" id="portalTopbar"></header>
+
+    <main class="portal-content">
+      <div class="portal-page-header">
+        <h1 class="portal-page-title">Exam Marks Entry & Results Management</h1>
+        <p class="portal-page-subtitle">Record semester exam marks and publish letter grades to Student Results portal</p>
+      </div>
+
+      <div class="grid grid-3" style="grid-template-columns: 1fr 1.25fr; gap: 2rem;">
+        <!-- MARKS ENTRY FORM -->
+        <div class="card" style="height: fit-content;">
+          <h3 style="color: var(--dark-maroon); font-size: 1.25rem; margin-bottom: 0.5rem;">Enter / Update Student Marks</h3>
+          <p style="color: var(--muted); font-size: 0.85rem; margin-bottom: 1.25rem;">Results automatically appear on Student Portal gradebook.</p>
+
+          <div id="marksAlert" class="alert"></div>
+
+          <form id="marksEntryForm">
+            <div class="form-group">
+              <label for="marksStudentSelect">Select Student *</label>
+              <select id="marksStudentSelect" class="form-control" required>
+                <option value="">Loading enrolled students...</option>
+              </select>
+            </div>
+
+            <div class="grid grid-3" style="grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 0;">
+              <div class="form-group">
+                <label for="marksSemester">Semester *</label>
+                <select id="marksSemester" class="form-control" required>
+                  <option value="1">Semester 1</option>
+                  <option value="2">Semester 2</option>
+                  <option value="3">Semester 3</option>
+                  <option value="4">Semester 4</option>
+                  <option value="5" selected>Semester 5</option>
+                  <option value="6">Semester 6</option>
+                  <option value="7">Semester 7</option>
+                  <option value="8">Semester 8</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="marksSubject">Subject *</label>
+                <select id="marksSubject" class="form-control" required>
+                  <!-- 5th Semester Subjects -->
+                  <option value="Software Engineering">Software Engineering</option>
+                  <option value="Computer Networks">Computer Networks</option>
+                  <option value="Economics for Engineers">Economics for Engineers</option>
+                  <option value="Design Analysis and Algorithms">Design Analysis and Algorithms</option>
+                  <option value="Operating Systems">Operating Systems</option>
+                  <option value="Compiler Design">Compiler Design</option>
+                  <!-- Other Core Subjects -->
+                  <option value="Data Structures">Data Structures</option>
+                  <option value="Database Systems">Database Systems</option>
+                  <option value="Web Development">Web Development</option>
+                  <option value="AI & ML">AI & ML</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="grid grid-3" style="grid-template-columns: 1fr 1fr 1fr; gap: 0.5rem; margin-bottom: 0;">
+              <div class="form-group">
+                <label for="marksObtained">Marks *</label>
+                <input type="number" id="marksObtained" class="form-control" placeholder="e.g. 88" min="0" required>
+              </div>
+
+              <div class="form-group">
+                <label for="marksMax">Max Marks</label>
+                <input type="number" id="marksMax" class="form-control" value="100">
+              </div>
+
+              <div class="form-group">
+                <label for="marksGrade">Grade (Auto)</label>
+                <input type="text" id="marksGrade" class="form-control" placeholder="A+ / A">
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 0.5rem;">
+              💾 Save & Sync Result
+            </button>
+          </form>
+        </div>
+
+        <!-- RECORDED RESULTS TABLE -->
+        <div>
+          <h3 style="color: var(--dark-maroon); font-size: 1.25rem; margin-bottom: 1rem;">Recorded Exam Results</h3>
+          <div class="card">
+            <div class="table-responsive">
+              <table class="portal-table">
+                <thead>
+                  <tr>
+                    <th>Student Name</th>
+                    <th>Sem</th>
+                    <th>Subject</th>
+                    <th>Marks</th>
+                    <th>Max</th>
+                    <th>Grade</th>
+                  </tr>
+                </thead>
+                <tbody id="facultyResultsTableBody">
+                  <tr><td colspan="6" style="text-align: center; color: var(--muted);">Loading results...</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer-bottom" style="margin-top: auto;">
+      <div class="container">
+        <p>&copy; 2026 Campus 360. All rights reserved. Exam Results Entry Module.</p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="../../js/auth.js"></script>
+  <script src="../../js/faculty/marks.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      protectPortal('faculty', 'marks');
+    });
+  </script>
+</body>
+</html>

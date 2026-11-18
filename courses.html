@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Academic Courses | Campus 360</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="header">
+    <div class="container">
+      <nav class="navbar">
+        <a href="index.html" class="nav-brand">
+          <div class="nav-brand-icon">C</div>
+          Campus <span>360</span>
+        </a>
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="courses.html" class="nav-link active">Courses</a></li>
+          <li><a href="campus.html" class="nav-link">Campus</a></li>
+          <li><a href="notices.html" class="nav-link">Notices</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li><a href="login.html" class="btn-nav-login">Portal Login</a></li>
+        </ul>
+        <button class="hamburger" id="hamburgerToggle" aria-label="Toggle Navigation Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- PAGE BANNER -->
+  <section class="page-banner">
+    <div class="container">
+      <h1>Academic Programs & Courses</h1>
+      <p>Explore our undergraduate and degree programs designed for tomorrow's industry leaders.</p>
+      <div class="breadcrumb">
+        <a href="index.html">Home</a> &gt; <span>Courses</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- COURSES SECTION -->
+  <section class="section">
+    <div class="container">
+
+      <!-- FILTER & SEARCH BAR -->
+      <div class="filter-bar">
+        <input type="text" id="courseSearchInput" class="search-input" placeholder="🔍 Search courses by name, subject, or keyword...">
+        <div class="dept-filter-btns">
+          <button class="filter-btn active" data-dept="All">All Departments</button>
+          <button class="filter-btn" data-dept="Computer Science">Computer Science</button>
+          <button class="filter-btn" data-dept="Electronics">Electronics</button>
+          <button class="filter-btn" data-dept="Mechanical">Mechanical</button>
+          <button class="filter-btn" data-dept="Management">Management</button>
+        </div>
+      </div>
+
+      <!-- DYNAMIC COURSES GRID -->
+      <div class="grid grid-3" id="coursesContainer">
+        <!-- Rendered dynamically by js/courses.js -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>
+            <div class="nav-brand-icon" style="width: 30px; height: 30px; font-size: 0.95rem;">C</div>
+            Campus <span>360</span>
+          </h3>
+          <p>Campus 360 is a modern, web-based college management portal designed to streamline academic administrative operations and foster student success.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="courses.html">Academic Courses</a>
+            <a href="campus.html">Campus Facilities</a>
+            <a href="notices.html">Notice Board</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>User Portals</h4>
+          <div class="footer-links">
+            <a href="login.html">Student Dashboard</a>
+            <a href="login.html">Faculty Portal</a>
+            <a href="login.html">Admin Management</a>
+            <a href="contact.html">Help & Support</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contact Us</h4>
+          <div class="footer-contact-item">
+            <span>📍</span>
+            <span>Campus 360 Education Complex, University Road, Academic City</span>
+          </div>
+          <div class="footer-contact-item">
+            <span>📞</span>
+            <span>+1 (800) 360-CAMPUS</span>
+          </div>
+          <div class="footer-contact-item">
+            <span>✉️</span>
+            <span>info@campus360.edu</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; 2026 Campus 360. All rights reserved. Designed for College Management & Academic Administration.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/courses.js"></script>
+</body>
+</html>

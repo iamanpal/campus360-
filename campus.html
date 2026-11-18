@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campus Life & Facilities | Campus 360</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="header">
+    <div class="container">
+      <nav class="navbar">
+        <a href="index.html" class="nav-brand">
+          <div class="nav-brand-icon">C</div>
+          Campus <span>360</span>
+        </a>
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="courses.html" class="nav-link">Courses</a></li>
+          <li><a href="campus.html" class="nav-link active">Campus</a></li>
+          <li><a href="notices.html" class="nav-link">Notices</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li><a href="login.html" class="btn-nav-login">Portal Login</a></li>
+        </ul>
+        <button class="hamburger" id="hamburgerToggle" aria-label="Toggle Navigation Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- PAGE BANNER -->
+  <section class="page-banner">
+    <div class="container">
+      <h1>Campus Infrastructure & Gallery</h1>
+      <p>Explore world-class facilities and vibrant campus student life at Campus 360.</p>
+      <div class="breadcrumb">
+        <a href="index.html">Home</a> &gt; <span>Campus Facilities</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FACILITIES TABS SECTION -->
+  <section class="section">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-tag">Campus Amenities</span>
+        <h2 class="section-title">World-Class Student Facilities</h2>
+        <p class="section-subtitle">Click on a facility tab below to explore our infrastructure.</p>
+      </div>
+
+      <!-- TABS -->
+      <div class="facility-tabs">
+        <button class="facility-tab active" data-tab="tab-library">📚 Central Library</button>
+        <button class="facility-tab" data-tab="tab-classrooms">🏫 Smart Classrooms</button>
+        <button class="facility-tab" data-tab="tab-auditorium">🏛️ Auditorium</button>
+        <button class="facility-tab" data-tab="tab-sports">⚽ Sports Facilities</button>
+        <button class="facility-tab" data-tab="tab-cafeteria">☕ Cafeteria</button>
+        <button class="facility-tab" data-tab="tab-hostel">🏠 Student Hostel</button>
+      </div>
+
+      <!-- PANELS -->
+      <div class="facility-panel active" id="tab-library">
+        <div><img src="public\images\digital_lib.png" alt="library photo"></div>
+        <div>
+          <span class="section-tag">Academic Knowledge Hub</span>
+          <h3 style="font-size: 1.85rem; color: var(--dark-maroon); margin-bottom: 1rem;">Central Digital Library</h3>
+          <p>Our 3-story Central Library houses over 85,000 physical volumes, subscriptions to leading IEEE and Springer journals, and a 24/7 Digital Resource Hub equipped with high-speed internet work terminals.</p>
+          <ul style="margin-top: 1rem; list-style: disc; padding-left: 1.25rem; color: var(--charcoal);">
+            <li>Quiet study pods and collaborative conference rooms</li>
+            <li>E-book search workstation terminals</li>
+            <li>Automated RFID book circulation system</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="facility-panel" id="tab-classrooms">
+        <div><img src="public\images\smartroom.png" alt="smartroom photo"></div>
+        <div>
+          <span class="section-tag">Interactive Learning</span>
+          <h3 style="font-size: 1.85rem; color: var(--dark-maroon); margin-bottom: 1rem;">Smart Classrooms & Labs</h3>
+          <p>Every lecture hall is equipped with high-definition digital smart boards, acoustic audio systems, and ergonomic seating to enhance interactive learning.</p>
+          <ul style="margin-top: 1rem; list-style: disc; padding-left: 1.25rem; color: var(--charcoal);">
+            <li>Climate-controlled air-conditioned rooms</li>
+            <li>High-speed Wi-Fi coverage across all blocks</li>
+            <li>Dedicated software and hardware engineering laboratories</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="facility-panel" id="tab-auditorium">
+        <div><img src="public\images\Auditorium.png" alt="Auditorium photo"></div>
+        <div>
+          <span class="section-tag">Events & Conventions</span>
+          <h3 style="font-size: 1.85rem; color: var(--dark-maroon); margin-bottom: 1rem;">Grand Auditorium & Media Hall</h3>
+          <p>A 1,200-seat state-of-the-art auditorium equipped with surround sound, professional stage lighting, and broadcast streaming facilities for national conferences, cultural fests, and guest lectures.</p>
+        </div>
+      </div>
+
+      <div class="facility-panel" id="tab-sports">
+        <div><img src="public\images\sports_factilities.png" alt="sports_facilities photo"></div>
+        <div>
+          <span class="section-tag">Fitness & Athletics</span>
+          <h3 style="font-size: 1.85rem; color: var(--dark-maroon); margin-bottom: 1rem;">Sports Complex & Gymnasium</h3>
+          <p>Comprehensive athletic complex featuring synthetic basketball courts, a football ground, badminton courts, table tennis arenas, and a fully equipped fitness gym under expert trainers.</p>
+        </div>
+      </div>
+
+      <div class="facility-panel" id="tab-cafeteria">
+        <div><img src="public\images\caffeteria.png" alt="caffeteria photo"></div>
+        <div>
+          <span class="section-tag">Dining & Refreshments</span>
+          <h3 style="font-size: 1.85rem; color: var(--dark-maroon); margin-bottom: 1rem;">Campus Cafeteria & Food Court</h3>
+          <p>Hygienic multi-cuisine food court serving nutritious meals, fresh snacks, coffee, and beverages prepared under strict health and sanitation guidelines.</p>
+        </div>
+      </div>
+
+      <div class="facility-panel" id="tab-hostel">
+        <div><img src="public\images\Hostel.png" alt="hostel photo"></div>
+        <div>
+          <span class="section-tag">Residential Life</span>
+          <h3 style="font-size: 1.85rem; color: var(--dark-maroon); margin-bottom: 1rem;">Student Hostels & Residences</h3>
+          <p>Separate secure residential hostels for male and female students with 24/7 security CCTV monitoring, resident wardens, study lounges, and high-speed fiber internet.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- COLLEGE GALLERY SECTION -->
+  <section class="section" style="background-color: var(--blush); border-top: 1px solid var(--soft-rose);">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-tag" style="background-color: var(--white);">Photo Gallery</span>
+        <h2 class="section-title">Life at Campus 360</h2>
+        <p class="section-subtitle">Moments from academic events, campus life, sports tournaments, and student achievements.</p>
+      </div>
+
+      <!-- GALLERY FILTER BUTTONS -->
+      <div style="display: flex; justify-content: center; gap: 0.5rem; margin-bottom: 2rem; flex-wrap: wrap;" class="gallery-filter-btns">
+        <button class="filter-btn active" data-cat="All">All Photographs</button>
+        <button class="filter-btn" data-cat="Campus">Campus & Buildings</button>
+        <button class="filter-btn" data-cat="Events">Cultural & Tech Events</button>
+        <button class="filter-btn" data-cat="Sports">Sports</button>
+        <button class="filter-btn" data-cat="Facilities">Facilities</button>
+      </div>
+
+      <!-- GALLERY GRID -->
+      <div class="gallery-grid" id="galleryContainer">
+        <!-- Rendered by js/campus.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>
+            <div class="nav-brand-icon" style="width: 30px; height: 30px; font-size: 0.95rem;">C</div>
+            Campus <span>360</span>
+          </h3>
+          <p>Campus 360 is a modern, web-based college management portal designed to streamline academic administrative operations and foster student success.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="courses.html">Academic Courses</a>
+            <a href="campus.html">Campus Facilities</a>
+            <a href="notices.html">Notice Board</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>User Portals</h4>
+          <div class="footer-links">
+            <a href="login.html">Student Dashboard</a>
+            <a href="login.html">Faculty Portal</a>
+            <a href="login.html">Admin Management</a>
+            <a href="contact.html">Help & Support</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contact Us</h4>
+          <div class="footer-contact-item">
+            <span>📍</span>
+            <span>Campus 360 Education Complex, University Road, Academic City</span>
+          </div>
+          <div class="footer-contact-item">
+            <span>📞</span>
+            <span>+1 (800) 360-CAMPUS</span>
+          </div>
+          <div class="footer-contact-item">
+            <span>✉️</span>
+            <span>info@campus360.edu</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; 2026 Campus 360. All rights reserved. Designed for College Management & Academic Administration.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/campus.js"></script>
+</body>
+</html>

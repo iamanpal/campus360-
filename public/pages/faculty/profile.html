@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Faculty Profile | Campus 360</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/portal.css">
+</head>
+<body class="portal-body">
+
+  <aside class="portal-sidebar" id="portalSidebar"></aside>
+
+  <div class="portal-main">
+    <header class="portal-topbar" id="portalTopbar"></header>
+
+    <main class="portal-content">
+      <div class="portal-page-header">
+        <h1 class="portal-page-title">Faculty Profile & Institutional Identity</h1>
+        <p class="portal-page-subtitle">View assigned department & subjects, and update personal contact information</p>
+      </div>
+
+      <div class="grid grid-3" style="grid-template-columns: 1fr 1fr; gap: 2rem;">
+        <!-- READ-ONLY INSTITUTIONAL DETAILS -->
+        <div class="card">
+          <h3 style="color: var(--dark-maroon); font-size: 1.25rem; margin-bottom: 1rem; border-bottom: 2px solid var(--blush); padding-bottom: 0.5rem;">
+            🏫 Institutional Appointment Details
+          </h3>
+
+          <div style="display: flex; flex-direction: column; gap: 1rem;">
+            <div>
+              <span style="color: var(--muted); font-size: 0.85rem; display: block;">Faculty Staff ID</span>
+              <strong style="color: var(--maroon); font-size: 1.1rem;" id="profileFacultyId">--</strong>
+            </div>
+
+            <div>
+              <span style="color: var(--muted); font-size: 0.85rem; display: block;">Full Name</span>
+              <strong style="color: var(--charcoal);" id="profileFacultyName">--</strong>
+            </div>
+
+            <div>
+              <span style="color: var(--muted); font-size: 0.85rem; display: block;">Official Email Address</span>
+              <span style="color: var(--charcoal);" id="profileFacultyEmail">--</span>
+            </div>
+
+            <div>
+              <span style="color: var(--muted); font-size: 0.85rem; display: block;">Academic Department</span>
+              <span style="color: var(--charcoal);" id="profileFacultyDept">--</span>
+            </div>
+
+            <div>
+              <span style="color: var(--muted); font-size: 0.85rem; display: block;">Assigned Teaching Subjects</span>
+              <span style="color: var(--dark-maroon); font-weight: 600;" id="profileFacultySubjects">--</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- EDITABLE CONTACT DETAILS FORM -->
+        <div class="card">
+          <h3 style="color: var(--dark-maroon); font-size: 1.25rem; margin-bottom: 0.5rem; border-bottom: 2px solid var(--blush); padding-bottom: 0.5rem;">
+            📞 Personal Contact Information
+          </h3>
+          <p style="color: var(--muted); font-size: 0.85rem; margin-bottom: 1.25rem;">Update your phone number or academic title designation.</p>
+
+          <div id="facultyProfileAlert" class="alert"></div>
+
+          <form id="facultyProfileForm">
+            <div class="form-group">
+              <label for="profileFacultyDesignation">Academic Designation</label>
+              <input type="text" id="profileFacultyDesignation" class="form-control" placeholder="e.g. Senior Assistant Professor">
+            </div>
+
+            <div class="form-group">
+              <label for="profileFacultyPhone">Phone Number</label>
+              <input type="tel" id="profileFacultyPhone" class="form-control" placeholder="+1 (555) 000-0000">
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">
+              💾 Save Profile Details
+            </button>
+          </form>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer-bottom" style="margin-top: auto;">
+      <div class="container">
+        <p>&copy; 2026 Campus 360. All rights reserved. Faculty Profile Module.</p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="../../js/auth.js"></script>
+  <script src="../../js/faculty/profile.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      protectPortal('faculty', 'profile');
+    });
+  </script>
+</body>
+</html>

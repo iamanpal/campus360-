@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campus Gallery | Campus 360 Admin</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/portal.css">
+</head>
+<body class="portal-body">
+
+  <aside class="portal-sidebar" id="portalSidebar"></aside>
+
+  <div class="portal-main">
+    <header class="portal-topbar" id="portalTopbar"></header>
+
+    <main class="portal-content">
+      <div class="portal-page-header">
+        <h1 class="portal-page-title">Campus Photo Gallery 🖼️</h1>
+        <p class="portal-page-subtitle">Publish and manage highlights displayed on the public Campus page</p>
+      </div>
+
+      <!-- ADD GALLERY ITEM FORM CARD -->
+      <div class="card" style="margin-bottom: 2rem;">
+        <h3 style="color: var(--dark-maroon); font-size: 1.2rem; margin-bottom: 1rem; border-bottom: 2px solid var(--blush); padding-bottom: 0.5rem;">
+          ➕ Add Photo Highlight
+        </h3>
+
+        <div id="galleryAlert" class="alert" style="display: none; margin-bottom: 1rem;"></div>
+
+        <form id="addGalleryForm">
+          <div class="form-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem;">
+            <div class="form-group">
+              <label for="galleryTitle" class="form-label">Photo Title *</label>
+              <input type="text" id="galleryTitle" class="form-control" placeholder="e.g. Central Library & Learning Hub" required>
+            </div>
+
+            <div class="form-group">
+              <label for="galleryCategory" class="form-label">Category *</label>
+              <select id="galleryCategory" class="form-control" required>
+                <option value="Campus">Campus Infrastructure</option>
+                <option value="Facilities">Labs & Facilities</option>
+                <option value="Events">Annual Fest & Events</option>
+                <option value="Sports">Sports & Fitness</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="galleryImagePath" class="form-label">Image Path / URL or Icon Emoji *</label>
+              <input type="text" id="galleryImagePath" class="form-control" placeholder="e.g. images/library.jpg or 📚" required>
+            </div>
+
+            <div class="form-group" style="grid-column: 1 / -1;">
+              <label for="galleryDescription" class="form-label">Caption / Brief Description</label>
+              <input type="text" id="galleryDescription" class="form-control" placeholder="Brief caption describing the facility or highlight...">
+            </div>
+          </div>
+
+          <div style="margin-top: 1.25rem; text-align: right;">
+            <button type="submit" class="btn btn-primary">🖼️ Publish Photo</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- GALLERY GRID CARD -->
+      <div style="margin-bottom: 1rem;">
+        <h3 style="color: var(--dark-maroon); font-size: 1.2rem; margin-bottom: 1rem;">
+          📋 Active Gallery Photos
+        </h3>
+        <div id="adminGalleryGrid" class="grid grid-3" style="gap: 1.5rem;">
+          <p style="color: var(--muted); text-align: center; grid-column: 1/-1; padding: 2rem;">Loading gallery photos...</p>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer-bottom" style="margin-top: auto;">
+      <div class="container">
+        <p>&copy; 2026 Campus 360. All rights reserved. Admin Control Panel Module.</p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="../../js/auth.js"></script>
+  <script src="../../js/admin/gallery.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      protectPortal('admin', 'gallery');
+    });
+  </script>
+</body>
+</html>

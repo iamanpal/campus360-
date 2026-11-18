@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mark Attendance | Campus 360 Faculty</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/portal.css">
+</head>
+<body class="portal-body">
+
+  <aside class="portal-sidebar" id="portalSidebar"></aside>
+
+  <div class="portal-main">
+    <header class="portal-topbar" id="portalTopbar"></header>
+
+    <main class="portal-content">
+      <div class="portal-page-header">
+        <h1 class="portal-page-title">Mark & Manage Student Attendance</h1>
+        <p class="portal-page-subtitle">Select class subject, pick lecture date, and toggle present/absent status</p>
+      </div>
+
+      <div id="attendanceAlert" class="alert"></div>
+
+      <div class="card">
+        <form id="attendanceMarkingForm">
+          <div class="grid grid-3" style="grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem;">
+            <div class="form-group" style="margin-bottom: 0;">
+              <label for="attendanceSubject">Select Subject *</label>
+              <select id="attendanceSubject" class="form-control" required>
+                <!-- 5th Semester Core Subjects -->
+                <option value="Software Engineering">Software Engineering</option>
+                <option value="Computer Networks">Computer Networks</option>
+                <option value="Economics for Engineers">Economics for Engineers</option>
+                <option value="Design Analysis and Algorithms">Design Analysis and Algorithms</option>
+                <option value="Operating Systems">Operating Systems</option>
+                <option value="Compiler Design">Compiler Design</option>
+                <!-- Other Core Subjects -->
+                <option value="Data Structures">Data Structures</option>
+                <option value="Database Systems">Database Systems</option>
+                <option value="Web Development">Web Development</option>
+                <option value="AI & ML">AI & ML</option>
+              </select>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 0;">
+              <label for="attendanceDate">Lecture Date *</label>
+              <input type="date" id="attendanceDate" class="form-control" required>
+            </div>
+          </div>
+
+          <h3 style="color: var(--dark-maroon); font-size: 1.15rem; margin-bottom: 1rem;">Enrolled Students Attendance List</h3>
+
+          <div class="table-responsive" style="margin-bottom: 1.5rem;">
+            <table class="portal-table">
+              <thead>
+                <tr>
+                  <th>Roll / Student ID</th>
+                  <th>Student Name</th>
+                  <th>Course & Semester</th>
+                  <th>Attendance Status</th>
+                </tr>
+              </thead>
+              <tbody id="attendanceMarkingTableBody">
+                <tr><td colspan="4" style="text-align: center; color: var(--muted);">Loading student roster...</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div style="text-align: right;">
+            <button type="submit" class="btn btn-primary" style="padding: 0.75rem 2rem;">
+              💾 Save & Publish Attendance
+            </button>
+          </div>
+        </form>
+      </div>
+    </main>
+
+    <footer class="footer-bottom" style="margin-top: auto;">
+      <div class="container">
+        <p>&copy; 2026 Campus 360. All rights reserved. Attendance Management Module.</p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="../../js/auth.js"></script>
+  <script src="../../js/faculty/attendance.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      protectPortal('faculty', 'attendance');
+    });
+  </script>
+</body>
+</html>

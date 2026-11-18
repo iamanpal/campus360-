@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Complaints & Grievances | Campus 360 Admin</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/portal.css">
+</head>
+<body class="portal-body">
+
+  <aside class="portal-sidebar" id="portalSidebar"></aside>
+
+  <div class="portal-main">
+    <header class="portal-topbar" id="portalTopbar"></header>
+
+    <main class="portal-content">
+      <div class="portal-page-header">
+        <h1 class="portal-page-title">Grievances & Complaints 📑</h1>
+        <p class="portal-page-subtitle">Track and resolve submitted campus complaints and support tickets</p>
+      </div>
+
+      <!-- COMPLAINTS LIST CONTAINER -->
+      <div style="margin-bottom: 1rem;">
+        <h3 style="color: var(--dark-maroon); font-size: 1.2rem; margin-bottom: 1rem;">
+          📋 Registered Support Tickets
+        </h3>
+        <div id="adminComplaintsContainer">
+          <p style="color: var(--muted); text-align: center; padding: 2rem;">Loading complaints...</p>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer-bottom" style="margin-top: auto;">
+      <div class="container">
+        <p>&copy; 2026 Campus 360. All rights reserved. Admin Control Panel Module.</p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="../../js/auth.js"></script>
+  <script src="../../js/admin/complaints.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      protectPortal('admin', 'complaints');
+    });
+  </script>
+</body>
+</html>

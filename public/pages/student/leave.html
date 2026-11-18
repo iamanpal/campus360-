@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leave Applications | Campus 360</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/portal.css">
+</head>
+<body class="portal-body">
+
+  <aside class="portal-sidebar" id="portalSidebar"></aside>
+
+  <div class="portal-main">
+    <header class="portal-topbar" id="portalTopbar"></header>
+
+    <main class="portal-content">
+      <div class="portal-page-header">
+        <h1 class="portal-page-title">Leave Applications & Approval History</h1>
+        <p class="portal-page-subtitle">Submit academic leave requests and track administrative approval status</p>
+      </div>
+
+      <div class="grid grid-3" style="grid-template-columns: 1fr 1.25fr; gap: 2rem;">
+        <!-- LEAVE APPLICATION FORM -->
+        <div class="card" style="height: fit-content;">
+          <h3 style="color: var(--dark-maroon); font-size: 1.25rem; margin-bottom: 0.5rem;">Apply for Leave</h3>
+          <p style="color: var(--muted); font-size: 0.85rem; margin-bottom: 1.25rem;">Submitted requests will be reviewed by college administration.</p>
+
+          <div id="leaveAlert" class="alert"></div>
+
+          <form id="leaveForm">
+            <div class="form-group">
+              <label for="leaveReason">Leave Reason *</label>
+              <input type="text" id="leaveReason" class="form-control" placeholder="e.g. Medical Leave / Family Emergency / Event" required>
+            </div>
+
+            <div class="grid grid-3" style="grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 0;">
+              <div class="form-group">
+                <label for="leaveStartDate">Start Date *</label>
+                <input type="date" id="leaveStartDate" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label for="leaveEndDate">End Date *</label>
+                <input type="date" id="leaveEndDate" class="form-control" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="leaveDescription">Detailed Explanation</label>
+              <textarea id="leaveDescription" class="form-control" placeholder="Provide additional details or reason for leave..." style="min-height: 90px;"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 0.5rem;">
+              🚀 Submit Leave Request
+            </button>
+          </form>
+        </div>
+
+        <!-- LEAVE HISTORY LIST -->
+        <div>
+          <h3 style="color: var(--dark-maroon); font-size: 1.25rem; margin-bottom: 1rem;">Leave Application History</h3>
+          <div id="leaveHistoryContainer">
+            <p style="color: var(--muted); text-align: center; padding: 2rem;">Loading leave history...</p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer-bottom" style="margin-top: auto;">
+      <div class="container">
+        <p>&copy; 2026 Campus 360. All rights reserved. Leave Management Module.</p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="../../js/auth.js"></script>
+  <script src="../../js/student/leave.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      protectPortal('student', 'leave');
+    });
+  </script>
+</body>
+</html>

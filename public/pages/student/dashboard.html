@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Dashboard | Campus 360</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/portal.css">
+</head>
+<body class="portal-body">
+
+  <!-- SIDEBAR CONTAINER -->
+  <aside class="portal-sidebar" id="portalSidebar"></aside>
+
+  <!-- MAIN CONTENT CONTAINER -->
+  <div class="portal-main">
+    <header class="portal-topbar" id="portalTopbar"></header>
+
+    <main class="portal-content">
+      <div class="portal-page-header">
+        <h1 class="portal-page-title">Welcome Back, <span id="studentNameHeader">Student</span>! 👋</h1>
+        <p class="portal-page-subtitle" id="studentCourseHeader">B.Tech Computer Science & Engineering | Semester 4</p>
+      </div>
+
+      <!-- METRIC CARDS GRID -->
+      <div class="metric-grid">
+        <div class="metric-card card-blush">
+          <div class="metric-label">Overall Attendance</div>
+          <div class="metric-value" id="metricAttendancePct">--%</div>
+          <div class="metric-subtext" id="metricAttendanceSub">Classes Attended</div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-label">Pending Assignments</div>
+          <div class="metric-value" id="metricPendingAssign">0</div>
+          <div class="metric-subtext">Due this semester</div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-label">Current Semester</div>
+          <div class="metric-value" id="metricCurrentSem">Sem 4</div>
+          <div class="metric-subtext">Academic Year 2026</div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-label">Pending Leave Applications</div>
+          <div class="metric-value" id="metricPendingLeaves">0</div>
+          <div class="metric-subtext">Awaiting admin review</div>
+        </div>
+      </div>
+
+      <!-- RECENT COURSE ASSIGNMENTS WIDGET -->
+      <div class="card" style="margin-bottom: 2rem; border-left: 6px solid var(--maroon); padding: 1.75rem 2rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--blush); padding-bottom: 0.75rem; margin-bottom: 1.25rem; flex-wrap: wrap; gap: 0.75rem;">
+          <div>
+            <h3 style="color: var(--dark-maroon); font-size: 1.3rem; font-weight: 700; margin-bottom: 0.2rem;">
+              📝 Latest Course Assignments
+            </h3>
+            <p style="color: var(--muted); font-size: 0.88rem; margin: 0;">Assignments published by faculty instructors</p>
+          </div>
+          <a href="assignments.html" class="btn btn-secondary" style="font-size: 0.85rem; padding: 0.5rem 1rem; font-weight: 600;">
+            Open Assignments Page →
+          </a>
+        </div>
+        <div id="recentAssignmentsWidget">
+          <p style="color: var(--muted); font-size: 0.9rem;">Loading assignments...</p>
+        </div>
+      </div>
+
+      <!-- RECENT BULLETIN WIDGET & QUICK LINKS -->
+      <div class="grid grid-3" style="grid-template-columns: 2fr 1fr; gap: 1.5rem;">
+        <div class="card">
+          <h3 style="color: var(--dark-maroon); font-size: 1.2rem; margin-bottom: 1rem; border-bottom: 2px solid var(--blush); padding-bottom: 0.5rem;">
+            📢 Recent Campus Circulars
+          </h3>
+          <div id="recentNoticesWidget">
+            <p style="color: var(--muted); font-size: 0.9rem;">Loading bulletin...</p>
+          </div>
+          <div style="margin-top: 1rem; text-align: right;">
+            <a href="notices.html" style="color: var(--maroon); font-weight: 600; font-size: 0.85rem;">View All Notices →</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 style="color: var(--dark-maroon); font-size: 1.2rem; margin-bottom: 1rem; border-bottom: 2px solid var(--blush); padding-bottom: 0.5rem;">
+            🚀 Quick Shortcuts
+          </h3>
+          <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+            <a href="attendance.html" class="btn btn-accent" style="justify-content: flex-start;">📅 Check Attendance</a>
+            <a href="timetable.html" class="btn btn-accent" style="justify-content: flex-start;">🕒 View Class Schedule</a>
+            <a href="assignments.html" class="btn btn-accent" style="justify-content: flex-start;">📝 Submit Assignment</a>
+            <a href="results.html" class="btn btn-accent" style="justify-content: flex-start;">🎓 View Exam Grades</a>
+            <a href="leave.html" class="btn btn-accent" style="justify-content: flex-start;">✉️ Apply for Leave</a>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer-bottom" style="margin-top: auto;">
+      <div class="container">
+        <p>&copy; 2026 Campus 360. All rights reserved. Student Management Portal.</p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="../../js/auth.js"></script>
+  <script src="../../js/student/dashboard.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      protectPortal('student', 'dashboard');
+    });
+  </script>
+</body>
+</html>

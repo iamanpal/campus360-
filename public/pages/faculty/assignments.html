@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Assignments | Campus 360 Faculty</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/portal.css">
+</head>
+<body class="portal-body">
+
+  <aside class="portal-sidebar" id="portalSidebar"></aside>
+
+  <div class="portal-main">
+    <header class="portal-topbar" id="portalTopbar"></header>
+
+    <main class="portal-content">
+      <div class="portal-page-header">
+        <h1 class="portal-page-title">Course Assignment Builder</h1>
+        <p class="portal-page-subtitle">Publish new assignments, set deadlines, and manage course tasks</p>
+      </div>
+
+      <div class="grid grid-3" style="grid-template-columns: 1fr 1.35fr; gap: 2.5rem; align-items: flex-start;">
+        <!-- CREATE ASSIGNMENT FORM -->
+        <div class="card builder-form-card" style="height: fit-content;">
+          <h3 style="color: var(--dark-maroon); font-size: 1.35rem; margin-bottom: 0.5rem; font-weight: 700;">Create New Assignment</h3>
+          <p style="color: var(--muted); font-size: 0.9rem; margin-bottom: 1.5rem; line-height: 1.5;">Published assignments appear immediately on Student Portal.</p>
+
+          <div id="assignmentAlert" class="alert"></div>
+
+          <form id="createAssignmentForm">
+            <div class="form-group" style="margin-bottom: 1.25rem;">
+              <label for="assignTitle" style="font-weight: 600; font-size: 0.95rem; margin-bottom: 0.45rem; display: block;">Assignment Title *</label>
+              <input type="text" id="assignTitle" class="form-control" placeholder="e.g. Graph Traversal & AVL Trees" required style="padding: 0.8rem 1rem; font-size: 0.95rem;">
+            </div>
+
+            <div class="form-group" style="margin-bottom: 1.25rem;">
+              <label for="assignSubject" style="font-weight: 600; font-size: 0.95rem; margin-bottom: 0.45rem; display: block;">Subject / Course Module *</label>
+              <input type="text" id="assignSubject" class="form-control" list="subjectList" placeholder="Select or type subject name..." required style="padding: 0.8rem 1rem; font-size: 0.95rem;">
+              <datalist id="subjectList">
+                <option value="Software Engineering"></option>
+                <option value="Computer Networks"></option>
+                <option value="Economics for Engineers"></option>
+                <option value="Design Analysis and Algorithms"></option>
+                <option value="Operating Systems"></option>
+                <option value="Compiler Design"></option>
+                <option value="Data Structures"></option>
+                <option value="Database Systems"></option>
+                <option value="Web Development"></option>
+                <option value="AI & ML"></option>
+                <option value="Discrete Mathematics"></option>
+                <option value="Cloud Computing"></option>
+              </datalist>
+              <small style="color: var(--muted); font-size: 0.8rem; display: block; margin-top: 0.35rem;">Pick from suggestions or type your custom subject.</small>
+            </div>
+
+            <div class="grid grid-3" style="grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-bottom: 1.25rem;">
+              <div class="form-group" style="margin-bottom: 0;">
+                <label for="assignDueDate" style="font-weight: 600; font-size: 0.95rem; margin-bottom: 0.45rem; display: block;">Submission Deadline *</label>
+                <input type="date" id="assignDueDate" class="form-control" required style="padding: 0.8rem 1rem; font-size: 0.95rem;">
+              </div>
+              <div class="form-group" style="margin-bottom: 0;">
+                <label for="assignTotalMarks" style="font-weight: 600; font-size: 0.95rem; margin-bottom: 0.45rem; display: block;">Total Marks</label>
+                <input type="number" id="assignTotalMarks" class="form-control" value="100" min="1" style="padding: 0.8rem 1rem; font-size: 0.95rem;">
+              </div>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 1.5rem;">
+              <label for="assignDescription" style="font-weight: 600; font-size: 0.95rem; margin-bottom: 0.45rem; display: block;">Instructions & Problem Statement *</label>
+              <textarea id="assignDescription" class="form-control" placeholder="Write detailed instructions, problem questions or requirements..." style="min-height: 120px; padding: 0.85rem 1rem; font-size: 0.95rem; line-height: 1.6;" required></textarea>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 1.75rem;">
+              <label for="assignPhotoFile" style="font-weight: 600; font-size: 0.95rem; margin-bottom: 0.45rem; display: block;">📷 Attach Assignment Photo / Question Paper (Optional)</label>
+              <div class="builder-photo-dropzone">
+                <input type="file" id="assignPhotoFile" accept="image/*" class="form-control" style="padding: 0.5rem; background: var(--white); cursor: pointer;">
+                <small style="color: var(--muted); font-size: 0.82rem; display: block; margin-top: 0.5rem;">Upload photo (auto-compressed) or paste an image link below:</small>
+                <input type="text" id="assignPhotoUrl" class="form-control" placeholder="https://example.com/question-paper.jpg" style="margin-top: 0.6rem; padding: 0.65rem 0.85rem; font-size: 0.9rem;">
+              </div>
+
+              <!-- Image preview box -->
+              <div id="assignPhotoPreviewContainer" style="display: none; margin-top: 1rem; padding: 1rem; background: var(--warm-white); border: 1.5px dashed var(--soft-rose); border-radius: var(--radius-md); text-align: center;">
+                <img id="assignPhotoPreview" src="" alt="Photo Preview" style="max-width: 100%; max-height: 220px; object-fit: contain; border-radius: var(--radius-sm); box-shadow: 0 4px 10px rgba(88,28,45,0.08);">
+                <div style="margin-top: 0.75rem;">
+                  <button type="button" id="removePhotoBtn" class="btn btn-secondary" style="font-size: 0.85rem; padding: 0.4rem 1rem; color: #842029; border-color: #f5c2c7;">❌ Remove Photo</button>
+                </div>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%; padding: 0.9rem 1.5rem; font-size: 1rem; font-weight: 700; border-radius: 8px;">
+              🚀 Publish Assignment
+            </button>
+          </form>
+        </div>
+
+        <!-- PUBLISHED ASSIGNMENTS LIST -->
+        <div>
+          <h3 style="color: var(--dark-maroon); font-size: 1.35rem; font-weight: 700; margin-bottom: 1.25rem;">Published Assignments</h3>
+          <div id="facultyAssignmentsContainer">
+            <p style="color: var(--muted); text-align: center; padding: 2rem;">Loading assignments...</p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer-bottom" style="margin-top: auto;">
+      <div class="container">
+        <p>&copy; 2026 Campus 360. All rights reserved. Faculty Assignment Builder.</p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="../../js/auth.js"></script>
+  <script src="../../js/faculty/assignments.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      protectPortal('faculty', 'assignments');
+    });
+  </script>
+</body>
+</html>

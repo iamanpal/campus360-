@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Departments | Campus 360 Admin</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/portal.css">
+</head>
+<body class="portal-body">
+
+  <aside class="portal-sidebar" id="portalSidebar"></aside>
+
+  <div class="portal-main">
+    <header class="portal-topbar" id="portalTopbar"></header>
+
+    <main class="portal-content">
+      <div class="portal-page-header">
+        <h1 class="portal-page-title">Academic Departments 🏫</h1>
+        <p class="portal-page-subtitle">Manage institutional department units and Head of Department (HOD) designations</p>
+      </div>
+
+      <!-- CREATE DEPT FORM CARD -->
+      <div class="card" style="margin-bottom: 2rem;">
+        <h3 style="color: var(--dark-maroon); font-size: 1.2rem; margin-bottom: 1rem; border-bottom: 2px solid var(--blush); padding-bottom: 0.5rem;">
+          ➕ Add Academic Department
+        </h3>
+
+        <div id="deptAlert" class="alert" style="display: none; margin-bottom: 1rem;"></div>
+
+        <form id="createDeptForm">
+          <div class="form-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem;">
+            <div class="form-group">
+              <label for="newDeptName" class="form-label">Department Name *</label>
+              <input type="text" id="newDeptName" class="form-control" placeholder="Computer Science & Engineering" required>
+            </div>
+
+            <div class="form-group">
+              <label for="newDeptCode" class="form-label">Department Code *</label>
+              <input type="text" id="newDeptCode" class="form-control" placeholder="CSE" required style="text-transform: uppercase;">
+            </div>
+
+            <div class="form-group">
+              <label for="newDeptHOD" class="form-label">Head of Department (HOD)</label>
+              <input type="text" id="newDeptHOD" class="form-control" placeholder="Dr. Alan Turing">
+            </div>
+
+            <div class="form-group" style="grid-column: 1 / -1;">
+              <label for="newDeptDesc" class="form-label">Department Description</label>
+              <input type="text" id="newDeptDesc" class="form-control" placeholder="Brief mission statement or focus areas of the department...">
+            </div>
+          </div>
+
+          <div style="margin-top: 1.25rem; text-align: right;">
+            <button type="submit" class="btn btn-primary">➕ Register Department</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- DEPARTMENTS TABLE CARD -->
+      <div class="card">
+        <h3 style="color: var(--dark-maroon); font-size: 1.2rem; margin-bottom: 1rem; border-bottom: 2px solid var(--blush); padding-bottom: 0.5rem;">
+          📋 Active Department Directory
+        </h3>
+
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Code</th>
+                <th>Department Name</th>
+                <th>Head of Department (HOD)</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="adminDeptTableBody">
+              <tr>
+                <td colspan="4" style="text-align: center; color: var(--muted); padding: 2rem;">Loading departments...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer-bottom" style="margin-top: auto;">
+      <div class="container">
+        <p>&copy; 2026 Campus 360. All rights reserved. Admin Control Panel Module.</p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="../../js/auth.js"></script>
+  <script src="../../js/admin/departments.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      protectPortal('admin', 'departments');
+    });
+  </script>
+</body>
+</html>

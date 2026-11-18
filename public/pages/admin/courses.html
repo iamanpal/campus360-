@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Degree Courses | Campus 360 Admin</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/portal.css">
+</head>
+<body class="portal-body">
+
+  <aside class="portal-sidebar" id="portalSidebar"></aside>
+
+  <div class="portal-main">
+    <header class="portal-topbar" id="portalTopbar"></header>
+
+    <main class="portal-content">
+      <div class="portal-page-header">
+        <h1 class="portal-page-title">Degree Courses 📖</h1>
+        <p class="portal-page-subtitle">Configure institutional degree programs and public academic offerings</p>
+      </div>
+
+      <!-- CREATE COURSE FORM CARD -->
+      <div class="card" style="margin-bottom: 2rem;">
+        <h3 style="color: var(--dark-maroon); font-size: 1.2rem; margin-bottom: 1rem; border-bottom: 2px solid var(--blush); padding-bottom: 0.5rem;">
+          ➕ Create & Publish New Course
+        </h3>
+
+        <div id="courseAlert" class="alert" style="display: none; margin-bottom: 1rem;"></div>
+
+        <form id="createCourseForm">
+          <div class="form-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem;">
+            <div class="form-group">
+              <label for="newCourseName" class="form-label">Course Title *</label>
+              <input type="text" id="newCourseName" class="form-control" placeholder="e.g. B.Tech Computer Science" required>
+            </div>
+
+            <div class="form-group">
+              <label for="newCourseDept" class="form-label">Department *</label>
+              <select id="newCourseDept" class="form-control" required>
+                <option value="Computer Science & Engineering">Computer Science & Engineering</option>
+                <option value="Information Technology">Information Technology</option>
+                <option value="Electronics & Communication">Electronics & Communication</option>
+                <option value="Mechanical Engineering">Mechanical Engineering</option>
+                <option value="Civil Engineering">Civil Engineering</option>
+                <option value="Management Studies">Management Studies</option>
+                <option value="Applied Sciences">Applied Sciences</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="newCourseDuration" class="form-label">Duration *</label>
+              <input type="text" id="newCourseDuration" class="form-control" placeholder="e.g. 4 Years (8 Semesters)" required>
+            </div>
+
+            <div class="form-group">
+              <label for="newCourseSeats" class="form-label">Annual Intake Capacity</label>
+              <input type="number" id="newCourseSeats" class="form-control" placeholder="60" value="60">
+            </div>
+
+            <div class="form-group" style="grid-column: 1 / -1;">
+              <label for="newCourseDesc" class="form-label">Course Description & Overview *</label>
+              <textarea id="newCourseDesc" class="form-control" rows="2" placeholder="Brief summary of program curriculum, highlights, and career prospects..." required></textarea>
+            </div>
+
+            <div class="form-group" style="grid-column: 1 / -1;">
+              <label for="newCourseSubjects" class="form-label">Key Subjects (comma-separated)</label>
+              <input type="text" id="newCourseSubjects" class="form-control" placeholder="Data Structures, Operating Systems, Computer Networks, AI">
+            </div>
+          </div>
+
+          <div style="margin-top: 1.25rem; text-align: right;">
+            <button type="submit" class="btn btn-primary">➕ Publish Course</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- ACTIVE COURSES LIST -->
+      <div style="margin-bottom: 1rem;">
+        <h3 style="color: var(--dark-maroon); font-size: 1.2rem; margin-bottom: 1rem;">
+          📋 Configured Academic Courses
+        </h3>
+        <div id="adminCoursesContainer">
+          <p style="color: var(--muted); text-align: center; padding: 2rem;">Loading degree courses...</p>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer-bottom" style="margin-top: auto;">
+      <div class="container">
+        <p>&copy; 2026 Campus 360. All rights reserved. Admin Control Panel Module.</p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="../../js/auth.js"></script>
+  <script src="../../js/admin/courses.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      protectPortal('admin', 'courses');
+    });
+  </script>
+</body>
+</html>

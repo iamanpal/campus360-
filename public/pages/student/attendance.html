@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Attendance | Campus 360</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/portal.css">
+</head>
+<body class="portal-body">
+
+  <aside class="portal-sidebar" id="portalSidebar"></aside>
+
+  <div class="portal-main">
+    <header class="portal-topbar" id="portalTopbar"></header>
+
+    <main class="portal-content">
+      <div class="portal-page-header">
+        <h1 class="portal-page-title">Attendance Metrics & Breakdown</h1>
+        <p class="portal-page-subtitle">Subject-wise attendance percentage tracking (Mandatory 75% Requirement)</p>
+      </div>
+
+      <!-- LOW ATTENDANCE ALERT BOX -->
+      <div id="lowAttendanceAlert" class="alert alert-error"></div>
+
+      <!-- OVERVIEW METRICS -->
+      <div class="metric-grid">
+        <div class="metric-card card-blush">
+          <div class="metric-label">Overall Attendance</div>
+          <div class="metric-value" id="overallPctDisplay">--%</div>
+          <div class="metric-subtext">Cumulative across subjects</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-label">Total Present</div>
+          <div class="metric-value" id="totalPresentDisplay">0</div>
+          <div class="metric-subtext">Classes attended</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-label">Total Absent</div>
+          <div class="metric-value" id="totalAbsentDisplay">0</div>
+          <div class="metric-subtext">Classes missed</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-label">Total Conducted</div>
+          <div class="metric-value" id="totalClassesDisplay">0</div>
+          <div class="metric-subtext">Total lectures held</div>
+        </div>
+      </div>
+
+      <!-- SUBJECT BREAKDOWN TABLE -->
+      <div class="card">
+        <h3 style="color: var(--dark-maroon); font-size: 1.2rem; margin-bottom: 1rem;">Subject-wise Attendance Percentage</h3>
+        <div class="table-responsive">
+          <table class="portal-table">
+            <thead>
+              <tr>
+                <th>Subject Name</th>
+                <th>Present</th>
+                <th>Absent</th>
+                <th>Total Held</th>
+                <th>Attendance Percentage</th>
+              </tr>
+            </thead>
+            <tbody id="attendanceTableBody">
+              <tr><td colspan="5" style="text-align: center; color: var(--muted);">Loading attendance data...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer-bottom" style="margin-top: auto;">
+      <div class="container">
+        <p>&copy; 2026 Campus 360. All rights reserved. Attendance Portal Module.</p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="../../js/auth.js"></script>
+  <script src="../../js/student/attendance.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      protectPortal('student', 'attendance');
+    });
+  </script>
+</body>
+</html>

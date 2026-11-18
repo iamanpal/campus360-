@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard | Campus 360</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/portal.css">
+</head>
+<body class="portal-body">
+
+  <aside class="portal-sidebar" id="portalSidebar"></aside>
+
+  <div class="portal-main">
+    <header class="portal-topbar" id="portalTopbar"></header>
+
+    <main class="portal-content">
+      <div class="portal-page-header">
+        <h1 class="portal-page-title">Admin Control Panel 🛡️</h1>
+        <p class="portal-page-subtitle">Campus 360 Centralized Management & System Overview</p>
+      </div>
+
+      <!-- METRIC CARDS GRID -->
+      <div class="metric-grid">
+        <div class="metric-card card-blush">
+          <div class="metric-label">Total Students</div>
+          <div class="metric-value" id="countStudents">0</div>
+          <div class="metric-subtext">Registered student accounts</div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-label">Total Faculty</div>
+          <div class="metric-value" id="countFaculty">0</div>
+          <div class="metric-subtext">Teaching staff members</div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-label">Degree Courses</div>
+          <div class="metric-value" id="countCourses">0</div>
+          <div class="metric-subtext">Active academic programs</div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-label">Departments</div>
+          <div class="metric-value" id="countDepartments">0</div>
+          <div class="metric-subtext">Academic departments</div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-label">Pending Leaves</div>
+          <div class="metric-value" id="countLeaves">0</div>
+          <div class="metric-subtext">Awaiting administrative approval</div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-label">Active Notices</div>
+          <div class="metric-value" id="countNotices">0</div>
+          <div class="metric-subtext">Campus-wide circulars</div>
+        </div>
+      </div>
+
+      <!-- RECENT REGISTRATION WIDGETS -->
+      <div class="grid grid-2" style="gap: 1.5rem;">
+        <div class="card">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; border-bottom: 2px solid var(--blush); padding-bottom: 0.5rem;">
+            <h3 style="color: var(--dark-maroon); font-size: 1.15rem; margin-bottom: 0;">👨‍🎓 Recently Added Students</h3>
+            <a href="students.html" style="color: var(--maroon); font-weight: 600; font-size: 0.85rem;">Manage All →</a>
+          </div>
+          <div id="recentStudentsWidget">
+            <p style="color: var(--muted); font-size: 0.9rem;">Loading recent students...</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; border-bottom: 2px solid var(--blush); padding-bottom: 0.5rem;">
+            <h3 style="color: var(--dark-maroon); font-size: 1.15rem; margin-bottom: 0;">👨‍🏫 Recently Added Faculty</h3>
+            <a href="faculty.html" style="color: var(--maroon); font-weight: 600; font-size: 0.85rem;">Manage All →</a>
+          </div>
+          <div id="recentFacultyWidget">
+            <p style="color: var(--muted); font-size: 0.9rem;">Loading recent faculty...</p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer-bottom" style="margin-top: auto;">
+      <div class="container">
+        <p>&copy; 2026 Campus 360. All rights reserved. Admin Control Panel Module.</p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="../../js/auth.js"></script>
+  <script src="../../js/admin/dashboard.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      protectPortal('admin', 'dashboard');
+    });
+  </script>
+</body>
+</html>

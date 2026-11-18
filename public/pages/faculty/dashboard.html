@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Faculty Dashboard | Campus 360</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/portal.css">
+</head>
+<body class="portal-body">
+
+  <aside class="portal-sidebar" id="portalSidebar"></aside>
+
+  <div class="portal-main">
+    <header class="portal-topbar" id="portalTopbar"></header>
+
+    <main class="portal-content">
+      <div class="portal-page-header">
+        <h1 class="portal-page-title">Welcome Back, <span id="facultyNameHeader">Faculty</span>! 👋</h1>
+        <p class="portal-page-subtitle" id="facultyDeptHeader">Assistant Professor | Department of Computer Science</p>
+      </div>
+
+      <!-- METRIC CARDS GRID -->
+      <div class="metric-grid">
+        <div class="metric-card card-blush">
+          <div class="metric-label">Assigned Classes</div>
+          <div class="metric-value" id="metricClassesCount">0</div>
+          <div class="metric-subtext">Active teaching modules</div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-label">Total Enrolled Students</div>
+          <div class="metric-value" id="metricStudentsCount">0</div>
+          <div class="metric-subtext">Across assigned courses</div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-label">Submissions to Evaluate</div>
+          <div class="metric-value" id="metricPendingSubmissions">0</div>
+          <div class="metric-subtext">Awaiting score entry</div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-label">Pending Leave Requests</div>
+          <div class="metric-value" id="metricPendingLeaves">0</div>
+          <div class="metric-subtext">Student leave applications</div>
+        </div>
+      </div>
+
+      <!-- WIDGETS GRID -->
+      <div class="grid grid-3" style="grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+        <div class="card">
+          <h3 style="color: var(--dark-maroon); font-size: 1.2rem; margin-bottom: 1rem; border-bottom: 2px solid var(--blush); padding-bottom: 0.5rem;">
+            📚 Assigned Subjects
+          </h3>
+          <div id="assignedSubjectsWidget">
+            <p style="color: var(--muted); font-size: 0.9rem;">Loading assigned subjects...</p>
+          </div>
+          <div style="margin-top: 1rem; text-align: right;">
+            <a href="classes.html" style="color: var(--maroon); font-weight: 600; font-size: 0.85rem;">View Full Teaching Schedule →</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 style="color: var(--dark-maroon); font-size: 1.2rem; margin-bottom: 1rem; border-bottom: 2px solid var(--blush); padding-bottom: 0.5rem;">
+            📢 Recent Campus Circulars
+          </h3>
+          <div id="facultyNoticesWidget">
+            <p style="color: var(--muted); font-size: 0.9rem;">Loading bulletin...</p>
+          </div>
+          <div style="margin-top: 1rem; text-align: right;">
+            <a href="notices.html" style="color: var(--maroon); font-weight: 600; font-size: 0.85rem;">View All Circulars →</a>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer-bottom" style="margin-top: auto;">
+      <div class="container">
+        <p>&copy; 2026 Campus 360. All rights reserved. Faculty Portal Module.</p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="../../js/auth.js"></script>
+  <script src="../../js/faculty/dashboard.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      protectPortal('faculty', 'dashboard');
+    });
+  </script>
+</body>
+</html>

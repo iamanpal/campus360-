@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Students | Campus 360 Admin</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/portal.css">
+</head>
+<body class="portal-body">
+
+  <aside class="portal-sidebar" id="portalSidebar"></aside>
+
+  <div class="portal-main">
+    <header class="portal-topbar" id="portalTopbar"></header>
+
+    <main class="portal-content">
+      <div class="portal-page-header">
+        <h1 class="portal-page-title">Manage Students 👨‍🎓</h1>
+        <p class="portal-page-subtitle">Register new student credentials and manage active student directory</p>
+      </div>
+
+      <!-- REGISTRATION REQUESTS APPROVAL QUEUE CARD -->
+      <div class="card" style="margin-bottom: 2rem; border-left: 5px solid #d97706;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 1rem; border-bottom: 2px solid var(--blush); padding-bottom: 0.65rem;">
+          <div>
+            <h3 style="color: var(--dark-maroon); font-size: 1.25rem; margin-bottom: 0.25rem;">
+              📥 Student Self-Registration Requests (Approval Queue)
+            </h3>
+            <p style="color: var(--muted); font-size: 0.88rem; margin: 0;">Review student applications, accept to activate account or reject</p>
+          </div>
+          <span id="pendingRequestsBadge" class="badge badge-warning" style="font-size: 0.85rem; padding: 0.4rem 0.85rem;">0 Pending</span>
+        </div>
+
+        <div id="registrationAlert" class="alert" style="display: none; margin-bottom: 1rem;"></div>
+
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Submitted</th>
+                <th>Student Name</th>
+                <th>Email Address</th>
+                <th>Course & Sem</th>
+                <th>Phone</th>
+                <th>Status</th>
+                <th style="text-align: center;">Decision Action</th>
+              </tr>
+            </thead>
+            <tbody id="registrationRequestsTableBody">
+              <tr>
+                <td colspan="7" style="text-align: center; color: var(--muted); padding: 1.75rem;">Loading registration requests queue...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- CREATE STUDENT FORM CARD -->
+      <div class="card" style="margin-bottom: 2rem;">
+        <h3 style="color: var(--dark-maroon); font-size: 1.2rem; margin-bottom: 1rem; border-bottom: 2px solid var(--blush); padding-bottom: 0.5rem;">
+          ➕ Add New Student Account
+        </h3>
+
+        <div id="studentAlert" class="alert" style="display: none; margin-bottom: 1rem;"></div>
+
+        <form id="createStudentForm">
+          <div class="form-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem;">
+            <div class="form-group">
+              <label for="newStudentName" class="form-label">Full Name *</label>
+              <input type="text" id="newStudentName" class="form-control" placeholder="e.g. John Doe" required>
+            </div>
+
+            <div class="form-group">
+              <label for="newStudentEmail" class="form-label">Email Address *</label>
+              <input type="email" id="newStudentEmail" class="form-control" placeholder="john@campus360.edu" required>
+            </div>
+
+            <div class="form-group">
+              <label for="newStudentPassword" class="form-label">Password *</label>
+              <input type="password" id="newStudentPassword" class="form-control" placeholder="Initial login password" required>
+            </div>
+
+            <div class="form-group">
+              <label for="newStudentCourse" class="form-label">Degree Course *</label>
+              <select id="newStudentCourse" class="form-control" required>
+                <option value="B.Tech Computer Science">B.Tech Computer Science</option>
+                <option value="B.Tech Information Technology">B.Tech Information Technology</option>
+                <option value="B.Tech Electronics & Comm">B.Tech Electronics & Comm</option>
+                <option value="B.Tech Mechanical Eng">B.Tech Mechanical Eng</option>
+                <option value="B.Tech Civil Eng">B.Tech Civil Eng</option>
+                <option value="Bachelor of Business Admin">Bachelor of Business Admin</option>
+                <option value="Bachelor of Computer App">Bachelor of Computer App</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="newStudentSemester" class="form-label">Current Semester</label>
+              <select id="newStudentSemester" class="form-control">
+                <option value="1">Semester 1</option>
+                <option value="2">Semester 2</option>
+                <option value="3">Semester 3</option>
+                <option value="4">Semester 4</option>
+                <option value="5">Semester 5</option>
+                <option value="6">Semester 6</option>
+                <option value="7">Semester 7</option>
+                <option value="8">Semester 8</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="newStudentPhone" class="form-label">Contact Number</label>
+              <input type="tel" id="newStudentPhone" class="form-control" placeholder="+91 9876543210">
+            </div>
+          </div>
+
+          <div style="margin-top: 1.25rem; text-align: right;">
+            <button type="submit" class="btn btn-primary">➕ Register Student</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- STUDENT DIRECTORY LIST -->
+      <div class="card">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 1rem;">
+          <h3 style="color: var(--dark-maroon); font-size: 1.2rem; margin-bottom: 0;">📋 Enrolled Student Directory</h3>
+          <input type="text" id="studentSearchInput" class="form-control" placeholder="🔍 Search name, roll no, email..." style="width: 280px;">
+        </div>
+
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Roll No</th>
+                <th>Student Name</th>
+                <th>Email</th>
+                <th>Course & Semester</th>
+                <th>Account Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="adminStudentsTableBody">
+              <tr>
+                <td colspan="6" style="text-align: center; color: var(--muted); padding: 2rem;">Loading student directory...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer-bottom" style="margin-top: auto;">
+      <div class="container">
+        <p>&copy; 2026 Campus 360. All rights reserved. Admin Control Panel Module.</p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="../../js/auth.js"></script>
+  <script src="../../js/admin/students.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      protectPortal('admin', 'students');
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Publish Notices | Campus 360 Admin</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/portal.css">
+</head>
+<body class="portal-body">
+
+  <aside class="portal-sidebar" id="portalSidebar"></aside>
+
+  <div class="portal-main">
+    <header class="portal-topbar" id="portalTopbar"></header>
+
+    <main class="portal-content">
+      <div class="portal-page-header">
+        <h1 class="portal-page-title">Campus Notices & Circulars 📢</h1>
+        <p class="portal-page-subtitle">Publish campus-wide announcements visible to public visitors, students, and faculty</p>
+      </div>
+
+      <!-- CREATE NOTICE FORM CARD -->
+      <div class="card" style="margin-bottom: 2rem;">
+        <h3 style="color: var(--dark-maroon); font-size: 1.2rem; margin-bottom: 1rem; border-bottom: 2px solid var(--blush); padding-bottom: 0.5rem;">
+          📢 Publish New Announcement
+        </h3>
+
+        <div id="noticeAlert" class="alert" style="display: none; margin-bottom: 1rem;"></div>
+
+        <form id="createNoticeForm">
+          <div class="form-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem;">
+            <div class="form-group">
+              <label for="newNoticeTitle" class="form-label">Notice Headline / Title *</label>
+              <input type="text" id="newNoticeTitle" class="form-control" placeholder="e.g. Mid-Semester Examination Schedule 2026" required>
+            </div>
+
+            <div class="form-group">
+              <label for="newNoticeCategory" class="form-label">Notice Category *</label>
+              <select id="newNoticeCategory" class="form-control" required>
+                <option value="Academic">Academic</option>
+                <option value="Examination">Examination</option>
+                <option value="Events">Events</option>
+                <option value="Administrative">Administrative</option>
+                <option value="General">General</option>
+              </select>
+            </div>
+
+            <div class="form-group" style="grid-column: 1 / -1;">
+              <label for="newNoticeContent" class="form-label">Announcement Content & Details *</label>
+              <textarea id="newNoticeContent" class="form-control" rows="3" placeholder="Provide full details of the notice circular..." required></textarea>
+            </div>
+          </div>
+
+          <div style="margin-top: 1.25rem; text-align: right;">
+            <button type="submit" class="btn btn-primary">📢 Publish Notice</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- PUBLISHED NOTICES LIST -->
+      <div style="margin-bottom: 1rem;">
+        <h3 style="color: var(--dark-maroon); font-size: 1.2rem; margin-bottom: 1rem;">
+          📋 Active Notice Board Circulars
+        </h3>
+        <div id="adminNoticesContainer">
+          <p style="color: var(--muted); text-align: center; padding: 2rem;">Loading notice board...</p>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer-bottom" style="margin-top: auto;">
+      <div class="container">
+        <p>&copy; 2026 Campus 360. All rights reserved. Admin Control Panel Module.</p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="../../js/auth.js"></script>
+  <script src="../../js/admin/notices.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      protectPortal('admin', 'notices');
+    });
+  </script>
+</body>
+</html>

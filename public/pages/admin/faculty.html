@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Faculty | Campus 360 Admin</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/portal.css">
+</head>
+<body class="portal-body">
+
+  <aside class="portal-sidebar" id="portalSidebar"></aside>
+
+  <div class="portal-main">
+    <header class="portal-topbar" id="portalTopbar"></header>
+
+    <main class="portal-content">
+      <div class="portal-page-header">
+        <h1 class="portal-page-title">Manage Faculty 👨‍🏫</h1>
+        <p class="portal-page-subtitle">Register teaching staff credentials and manage faculty directory</p>
+      </div>
+
+      <!-- CREATE FACULTY FORM CARD -->
+      <div class="card" style="margin-bottom: 2rem;">
+        <h3 style="color: var(--dark-maroon); font-size: 1.2rem; margin-bottom: 1rem; border-bottom: 2px solid var(--blush); padding-bottom: 0.5rem;">
+          ➕ Add New Faculty Account
+        </h3>
+
+        <div id="facultyAlert" class="alert" style="display: none; margin-bottom: 1rem;"></div>
+
+        <form id="createFacultyForm">
+          <div class="form-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem;">
+            <div class="form-group">
+              <label for="newFacultyName" class="form-label">Full Name *</label>
+              <input type="text" id="newFacultyName" class="form-control" placeholder="Prof. Dr. Sarah Jenkins" required>
+            </div>
+
+            <div class="form-group">
+              <label for="newFacultyEmail" class="form-label">Email Address *</label>
+              <input type="email" id="newFacultyEmail" class="form-control" placeholder="s.jenkins@campus360.edu" required>
+            </div>
+
+            <div class="form-group">
+              <label for="newFacultyPassword" class="form-label">Password *</label>
+              <input type="password" id="newFacultyPassword" class="form-control" placeholder="Initial login password" required>
+            </div>
+
+            <div class="form-group">
+              <label for="newFacultyDept" class="form-label">Department *</label>
+              <select id="newFacultyDept" class="form-control" required>
+                <option value="Computer Science & Engineering">Computer Science & Engineering</option>
+                <option value="Information Technology">Information Technology</option>
+                <option value="Electronics & Communication">Electronics & Communication</option>
+                <option value="Mechanical Engineering">Mechanical Engineering</option>
+                <option value="Civil Engineering">Civil Engineering</option>
+                <option value="Management Studies">Management Studies</option>
+                <option value="Applied Sciences">Applied Sciences</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="newFacultyDesignation" class="form-label">Designation</label>
+              <input type="text" id="newFacultyDesignation" class="form-control" placeholder="e.g. Associate Professor">
+            </div>
+
+            <div class="form-group">
+              <label for="newFacultySubjects" class="form-label">Assigned Subjects (comma-separated)</label>
+              <input type="text" id="newFacultySubjects" class="form-control" placeholder="Data Structures, DBMS, Web Dev">
+            </div>
+          </div>
+
+          <div style="margin-top: 1.25rem; text-align: right;">
+            <button type="submit" class="btn btn-primary">➕ Register Faculty</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- FACULTY DIRECTORY LIST -->
+      <div class="card">
+        <h3 style="color: var(--dark-maroon); font-size: 1.2rem; margin-bottom: 1rem; border-bottom: 2px solid var(--blush); padding-bottom: 0.5rem;">
+          📋 Teaching Staff Directory
+        </h3>
+
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Staff ID</th>
+                <th>Faculty Name</th>
+                <th>Email</th>
+                <th>Department & Title</th>
+                <th>Assigned Teaching Modules</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="adminFacultyTableBody">
+              <tr>
+                <td colspan="6" style="text-align: center; color: var(--muted); padding: 2rem;">Loading faculty directory...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer-bottom" style="margin-top: auto;">
+      <div class="container">
+        <p>&copy; 2026 Campus 360. All rights reserved. Admin Control Panel Module.</p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="../../js/auth.js"></script>
+  <script src="../../js/admin/faculty.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      protectPortal('admin', 'faculty');
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Master Timetable | Campus 360 Admin</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/portal.css">
+</head>
+<body class="portal-body">
+
+  <aside class="portal-sidebar" id="portalSidebar"></aside>
+
+  <div class="portal-main">
+    <header class="portal-topbar" id="portalTopbar"></header>
+
+    <main class="portal-content">
+      <div class="portal-page-header">
+        <h1 class="portal-page-title">Master Timetable Management 🕒</h1>
+        <p class="portal-page-subtitle">Schedule class slots for degree programs and publish to Student & Faculty portals</p>
+      </div>
+
+      <!-- CREATE TIMETABLE SLOT CARD -->
+      <div class="card" style="margin-bottom: 2rem;">
+        <h3 style="color: var(--dark-maroon); font-size: 1.2rem; margin-bottom: 1rem; border-bottom: 2px solid var(--blush); padding-bottom: 0.5rem;">
+          ➕ Schedule Class Timetable Slot
+        </h3>
+
+        <div id="timetableAlert" class="alert" style="display: none; margin-bottom: 1rem;"></div>
+
+        <form id="createTimetableForm">
+          <div class="form-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+            <div class="form-group">
+              <label for="slotCourse" class="form-label">Course Program</label>
+              <select id="slotCourse" class="form-control">
+                <option value="B.Tech Computer Science">B.Tech Computer Science</option>
+                <option value="B.Tech Information Technology">B.Tech Information Technology</option>
+                <option value="B.Tech Electronics & Comm">B.Tech Electronics & Comm</option>
+                <option value="B.Tech Mechanical Eng">B.Tech Mechanical Eng</option>
+                <option value="B.Tech Civil Eng">B.Tech Civil Eng</option>
+                <option value="Bachelor of Business Admin">Bachelor of Business Admin</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="slotSemester" class="form-label">Semester *</label>
+              <select id="slotSemester" class="form-control" required>
+                <option value="1">Semester 1</option>
+                <option value="2">Semester 2</option>
+                <option value="3">Semester 3</option>
+                <option value="4">Semester 4</option>
+                <option value="5">Semester 5</option>
+                <option value="6">Semester 6</option>
+                <option value="7">Semester 7</option>
+                <option value="8">Semester 8</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="slotDay" class="form-label">Day of Week *</label>
+              <select id="slotDay" class="form-control" required>
+                <option value="Monday">Monday</option>
+                <option value="Tuesday">Tuesday</option>
+                <option value="Wednesday">Wednesday</option>
+                <option value="Thursday">Thursday</option>
+                <option value="Friday">Friday</option>
+                <option value="Saturday">Saturday</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="slotStart" class="form-label">Start Time *</label>
+              <input type="text" id="slotStart" class="form-control" placeholder="e.g. 09:00 AM" required>
+            </div>
+
+            <div class="form-group">
+              <label for="slotEnd" class="form-label">End Time *</label>
+              <input type="text" id="slotEnd" class="form-control" placeholder="e.g. 10:00 AM" required>
+            </div>
+
+            <div class="form-group">
+              <label for="slotSubject" class="form-label">Subject Title *</label>
+              <input type="text" id="slotSubject" class="form-control" placeholder="Data Structures & Algorithms" required>
+            </div>
+
+            <div class="form-group">
+              <label for="slotFaculty" class="form-label">Faculty Instructor</label>
+              <input type="text" id="slotFaculty" class="form-control" placeholder="Prof. Dr. Sarah Jenkins">
+            </div>
+
+            <div class="form-group">
+              <label for="slotRoom" class="form-label">Classroom / Lab Room *</label>
+              <input type="text" id="slotRoom" class="form-control" placeholder="LH-101 / Computer Lab 2" required>
+            </div>
+          </div>
+
+          <div style="margin-top: 1.25rem; text-align: right;">
+            <button type="submit" class="btn btn-primary">➕ Schedule Class Slot</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- MASTER TIMETABLE TABLE CARD -->
+      <div class="card">
+        <h3 style="color: var(--dark-maroon); font-size: 1.2rem; margin-bottom: 1rem; border-bottom: 2px solid var(--blush); padding-bottom: 0.5rem;">
+          📋 Master Timetable Schedule
+        </h3>
+
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Day</th>
+                <th>Time Slot</th>
+                <th>Subject</th>
+                <th>Course & Semester</th>
+                <th>Faculty & Classroom</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="adminTimetableTableBody">
+              <tr>
+                <td colspan="6" style="text-align: center; color: var(--muted); padding: 2rem;">Loading master timetable...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer-bottom" style="margin-top: auto;">
+      <div class="container">
+        <p>&copy; 2026 Campus 360. All rights reserved. Admin Control Panel Module.</p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="../../js/auth.js"></script>
+  <script src="../../js/admin/timetable.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      protectPortal('admin', 'timetable');
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reports & Metrics | Campus 360 Admin</title>
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/portal.css">
+</head>
+<body class="portal-body">
+
+  <aside class="portal-sidebar" id="portalSidebar"></aside>
+
+  <div class="portal-main">
+    <header class="portal-topbar" id="portalTopbar"></header>
+
+    <main class="portal-content">
+      <div class="portal-page-header">
+        <h1 class="portal-page-title">Institutional Reports & Metrics 📈</h1>
+        <p class="portal-page-subtitle">Academic distributions, enrollment analytics, and leave metrics</p>
+      </div>
+
+      <!-- TOP SUMMARY METRIC CARDS -->
+      <div class="metric-grid">
+        <div class="metric-card card-blush">
+          <div class="metric-label">Enrolled Students</div>
+          <div class="metric-value" id="reportTotalStudents">0</div>
+          <div class="metric-subtext">Total active student body</div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-label">Faculty Staff</div>
+          <div class="metric-value" id="reportTotalFaculty">0</div>
+          <div class="metric-subtext">Total academic instructors</div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-label">Degree Programs</div>
+          <div class="metric-value" id="reportTotalCourses">0</div>
+          <div class="metric-subtext">Active academic curricula</div>
+        </div>
+      </div>
+
+      <!-- BREAKDOWN CARDS GRID -->
+      <div class="grid grid-2" style="gap: 1.5rem; margin-top: 1.5rem;">
+        <div class="card">
+          <h3 style="color: var(--dark-maroon); font-size: 1.15rem; margin-bottom: 1rem; border-bottom: 2px solid var(--blush); padding-bottom: 0.5rem;">
+            📊 Student Distribution by Course
+          </h3>
+          <div id="reportCourseDistribution">
+            <p style="color: var(--muted); font-size: 0.9rem;">Loading course distribution metrics...</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 style="color: var(--dark-maroon); font-size: 1.15rem; margin-bottom: 1rem; border-bottom: 2px solid var(--blush); padding-bottom: 0.5rem;">
+            🏫 Faculty Distribution by Department
+          </h3>
+          <div id="reportDeptDistribution">
+            <p style="color: var(--muted); font-size: 0.9rem;">Loading department metrics...</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- LEAVE BREAKDOWN CARD -->
+      <div class="card" style="margin-top: 1.5rem;">
+        <h3 style="color: var(--dark-maroon); font-size: 1.15rem; margin-bottom: 1rem; border-bottom: 2px solid var(--blush); padding-bottom: 0.5rem;">
+          ✉️ Leave Request Processing Breakdown
+        </h3>
+        <div id="reportLeaveBreakdown">
+          <p style="color: var(--muted); font-size: 0.9rem;">Loading leave metrics...</p>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer-bottom" style="margin-top: auto;">
+      <div class="container">
+        <p>&copy; 2026 Campus 360. All rights reserved. Admin Control Panel Module.</p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="../../js/auth.js"></script>
+  <script src="../../js/admin/reports.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      protectPortal('admin', 'reports');
+    });
+  </script>
+</body>
+</html>
