@@ -1,1 +1,2 @@
-*.py linguist-detectable=false
+*.py linguist-generated=true
+**/*.py linguist-generated=true
